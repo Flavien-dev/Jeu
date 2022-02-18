@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (vérifierChampsSaisie()) {
                     Intent GameActivity = new Intent(MainActivity.this,GameActivity.class);
-
+                    finish();
                     startActivity(GameActivity);
                 }
             }

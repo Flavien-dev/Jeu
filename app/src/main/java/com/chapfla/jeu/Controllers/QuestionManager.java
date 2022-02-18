@@ -8,17 +8,14 @@ public class QuestionManager {
 
     public ArrayList<Question> listeAQuestion = new ArrayList();
 
-    public int indexQuestion = 0;
-
-    public QuestionManager() {
-    }
+    public QuestionManager() {}
 
     public void fillList() {
         listeAQuestion.add(new Question("La capitale du Vénézuela est Bogotà?",0));
         listeAQuestion.add(new Question("Cette appli est codée en javascript?",0));
         listeAQuestion.add(new Question("Cette appli est seulement pour les appareils Android?",1));
         listeAQuestion.add(new Question("l'OS le plus utilisé est MacOS?",0));
-        listeAQuestion.add(new Question("2x2+2-2/2 = 5?",1));
+        listeAQuestion.add(new Question("2 x 2 + 2 - 2 / 2 = 5?",1));
         listeAQuestion.add(new Question("Staline est un dictateur?",1));
         listeAQuestion.add(new Question("L'apprentissage d'informaticien se fait en 4 ans",1));
         listeAQuestion.add(new Question("L'homme le plus rapide du monde est Ronaldo?",0));
@@ -27,6 +24,6 @@ public class QuestionManager {
     }
 
     public Question distribQuestionAlea(ArrayList liste) {
-        Question questionChoisie = liste.get((int) (Math.random()*listeAQuestion.size()));
+        return (Question) liste.get((int) (Math.random()*liste.size()));
     }
 }
