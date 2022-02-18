@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/StartLayoutGame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black"
+    tools:context=".MainActivity"
+    tools:ignore="MissingDefaultResource">
+
+    <Button
+        android:id="@+id/button_player_2"
+        style="@style/Widget.Jeu.Button.addPlayer"
+        android:layout_width="498dp"
+        android:layout_height="51dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="28dp"
+        android:rotation="180"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/game_quest_2"
+        android:layout_width="499dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="92dp"
+        android:rotation="180"
+        android:text="question du joueur 2"
+        android:textSize="25sp"
+        android:maxLines="2"
+        app:layout_constraintLeft_toLeftOf="@id/StartLayoutGame"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/score_player_2"
+        android:layout_width="175dp"
+        android:layout_height="140dp"
+        android:layout_marginLeft="540dp"
+        android:layout_marginBottom="164dp"
+        android:rotation="180"
+        android:text="0"
+        android:textSize="120sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/StartLayoutGame" />
+
+    <TextView
+        android:id="@+id/score_player_1"
+        android:layout_width="175dp"
+        android:layout_height="140dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="28dp"
+        android:text="0"
+        android:textSize="120sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/StartLayoutGame" />
+
+    <TextView
+        android:id="@+id/game_quest_1"
+        android:layout_width="500dp"
+        android:layout_height="71dp"
+        android:layout_marginLeft="196dp"
+        android:layout_marginBottom="76dp"
+        android:text="question du joueur 1"
+        android:textSize="25sp"
+        android:maxLines="2"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/StartLayoutGame" />
+
+    <Button
+        android:id="@+id/button_player_1"
+        style="@style/Widget.Jeu.Button.addPlayer"
+        android:layout_width="498dp"
+        android:layout_height="51dp"
+        android:layout_marginLeft="196dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

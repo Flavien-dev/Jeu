@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Jeu</string>
+    <string name="nom_jeu">Speed Game</string>
+    <string name="question_ajouter_joueur">Veuillez ajouter un joueur</string>
+    <string name="ajouter_joueur">Ajouter un joueur</string>
+    <string name="jouer">Jouer</string>
+</resources>

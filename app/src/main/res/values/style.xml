@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="widget.Jeu.TextInputLayer.firstPlayer" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
+        <item name="android:textSize">20sp</item>
+        <item name="boxStrokeColor">@color/primaryOrange</item>
+        <item name="hintTextAppearance">@style/TextAppearance.AppCompat.Button</item>
+        <item name="android:textColor">@color/primaryOrange</item>
+        <item name="android:strokeColor">@color/primaryOrange</item>
+        <item name="android:color">@color/primaryOrange</item>
+    </style>
+
+    <style name="Widget.Jeu.AppBarLayout" parent="Widget.MaterialComponents.AppBarLayout.Primary">
+        <item name="android:color">@color/primaryOrange</item>
+        <item name="android:background">@color/primaryOrange</item>
+    </style>
+
+    <!--Application de base -->
+    <style name="Theme.Jeu.parDefaut" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:textColor">@color/primaryOrange</item>
+    </style>
+
+    <!-- Style des boutons -->
+    <style name="Widget.Jeu.Button.addPlayer" parent="Widget.MaterialComponents.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="backgroundTint">@color/primaryOrange</item>
+        <item name="android:textSize">20sp</item>
+        <item name="elevation">10dp</item>
+    </style>
+
+    <style name="Widget.Jeu.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/white</item>
+        <item name="materialButtonOutlinedStyle">@color/primaryOrange</item>
+        <item name="android:textColorPrimary">@color/primaryOrange</item>
+    </style>
+</resources>
