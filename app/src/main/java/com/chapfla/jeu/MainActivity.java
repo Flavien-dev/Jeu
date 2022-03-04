@@ -3,17 +3,22 @@ package com.chapfla.jeu;
 // importer les librairies
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.google.android.material.switchmaterial.SwitchMaterial;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,8 +29,11 @@ public class MainActivity extends AppCompatActivity {
     private EditText ET_second_player;
     private Button BT_jouer;
     private Toolbar toolbar;
+    private ConstraintLayout StartLayout;
     private LinearLayout LL_about;
     private LinearLayout LL_settings;
+    private SwitchMaterial SW_theme;
+    private Button BT_valider;
 
     /**
      * crée et initialise les objets au démarrage de l'application
@@ -46,14 +54,19 @@ public class MainActivity extends AppCompatActivity {
         ET_first_player = findViewById(R.id.main_edit_first_player);
         ET_second_player = findViewById(R.id.main_edit_second_player);
         BT_jouer = findViewById(R.id.button_playToGame);
+        StartLayout = findViewById(R.id.StartLayout);
         LL_about = findViewById(R.id.main_about_popup);
         LL_settings = findViewById(R.id.main_settings_popup);
+        SW_theme = findViewById(R.id.switch_réponse);
+        BT_valider = findViewById(R.id.button_validate);
 
         // rend invisible certains éléments
         ET_first_player.setVisibility(View.INVISIBLE);
         ET_second_player.setVisibility(View.INVISIBLE);
         LL_about.setVisibility(View.INVISIBLE);
         LL_settings.setVisibility(View.INVISIBLE);
+
+        SW_theme.setChecked(true);
     }
 
     /**
@@ -62,6 +75,8 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
+
 
         /**
          * exécute le code du bouton pour ajouter un utilisateur
@@ -94,6 +109,30 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        /**
+         * change le fond d'écran par rapport à l'état du switch
+         */
+        SW_theme.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+                // si le switch est a true, un fond d'écran sombre apparait
+                if(SW_theme.isChecked()) {
+                    StartLayout.setBackgroundResource(R.drawable.espace_orange);
+                } else {
+                    // sinon, un fond d'écran clair apparait
+                    StartLayout.setBackgroundResource(R.drawable.image_clair);
+                }
+            }
+        });
+
+        BT_valider.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onCheckedChanged(SW_theme);
+                LL_settings.setVisibility(View.INVISIBLE);
+            }
+        });
     }
 
     public boolean vérifierChampsSaisie() {
@@ -118,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
     /**
      * exécute une action par rapport à ce qu'on a sélectionné dans le menu
-     * @param item
+     * @param item ce qu'on a sélectionné
      * @return
      */
     @Override
@@ -139,5 +178,16 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
         return true;
+    }
+
+    public void onCheckedChanged(SwitchMaterial switch_menu) {
+        if(switch_menu.isChecked()) {
+            Log.wtf("switch","true");
+            StartLayout.setBackgroundResource(R.drawable.espace_orange);
+        }
+        else {
+            Log.wtf("switch","false");
+            StartLayout.setBackgroundResource(R.drawable.image_clair);
+        }
     }
 }

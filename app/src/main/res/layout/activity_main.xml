@@ -89,16 +89,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.497">
 
-        <TextView
-            android:id="@+id/TV_choix_temps_entre_questions"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:textColor="@color/white"
-            android:textSize="20dp"
+        <!-- permet de choisir entre le thème clair et sombre -->
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switch_réponse"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:checked="false"
             android:layout_marginBottom="20dp"
-            android:text="@string/temps_entre_question"/>
+            android:text="@string/switch_mode" />
 
         <!-- permet de choisir le délai entre 2 questions -->
         <com.google.android.material.textfield.TextInputLayout
@@ -118,17 +116,6 @@
                 android:maxLines="1"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
-            android:id="@+id/textview_nouvelle_question"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:layout_marginBottom="20dp"
-            android:text="@string/nouvelle_question"/>
-
         <!-- permet de saisir une nouvelle question -->
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
@@ -147,29 +134,10 @@
                 android:maxLines="4"/>
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- permet de choisir entre le thème clair et sombre -->
-        <com.google.android.material.switchmaterial.SwitchMaterial
-            android:id="@+id/switch_réponse"
-            android:layout_width="wrap_content"
-            android:layout_height="20dp"
-            android:checked="false"
-            android:layout_marginBottom="20dp"
-            android:text="@string/switch_réponse" />
-
-        <TextView
-            android:id="@+id/TV_choix_mode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:textColor="@color/white"
-            android:textSize="20dp"
-            android:text="@string/mode"/>
-
         <!-- permet d'appliquer les paramètres changés -->
         <Button
             android:id="@+id/button_validate"
-            style="@style/Widget.Jeu.Button.orange"
+            style="@style/Widget.Jeu.Button.menu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/menu_validate"

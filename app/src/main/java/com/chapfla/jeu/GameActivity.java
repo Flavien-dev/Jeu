@@ -34,7 +34,6 @@ public class GameActivity extends AppCompatActivity {
     Runnable questionRunnable = null;
 
     // créer des objets grâce aux classes
-    QuestionManager gestionQuestion = new QuestionManager();
     QuestionManager qManager;
     ArrayList<Question> listeQuestion = new ArrayList<>();
     Question questionEnCours;

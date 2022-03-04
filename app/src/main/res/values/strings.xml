@@ -16,5 +16,5 @@
     <string name="Score_de_base">0</string>
     <string name="temps_entre_question">Temps entre chaque question</string>
     <string name="nouvelle_question">Nouvelle question</string>
-    <string name="mode">Mode</string>
+    <string name="switch_mode">Mode</string>
 </resources>
