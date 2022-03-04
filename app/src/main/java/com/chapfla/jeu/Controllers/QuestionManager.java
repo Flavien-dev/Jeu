@@ -1,15 +1,31 @@
 package com.chapfla.jeu.Controllers;
 
+// importer les librairies
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+
 import com.chapfla.jeu.Models.Question;
+import com.chapfla.jeu.Models.SpeedQuizSQLiteOpenHelper;
 
 import java.util.ArrayList;
 
 public class QuestionManager {
 
+    // créer une liste
     public ArrayList<Question> listeAQuestion = new ArrayList();
 
+    // construit un gestionnaire de questions
     public QuestionManager() {}
 
+    // construit un gestionnaire de question
+    public QuestionManager(Context context) {
+        listeAQuestion = initQuestionList(context);
+    }
+
+    /**
+     * remplie la liste avec des questions
+     */
     public void fillList() {
         listeAQuestion.add(new Question("La capitale du Vénézuela est Bogotà?",0));
         listeAQuestion.add(new Question("Cette appli est codée en javascript?",0));
@@ -23,7 +39,35 @@ public class QuestionManager {
         listeAQuestion.add(new Question("RJ45 est un câble réseau?",0));
     }
 
+    /**
+     * choisie une question aléatoirement dans une liste
+     * @param liste liste qui contient des questions
+     * @return question choisie aléatoirement
+     */
     public Question distribQuestionAlea(ArrayList liste) {
         return (Question) liste.get((int) (Math.random()*liste.size()));
+    }
+
+    /**
+     * Charge une liste de question depuis la DB.
+     * @param context Le contexte de l'application pour passer la query
+     * @return Une arraylist charger de Question
+     */
+    private ArrayList<Question> initQuestionList(Context context){
+        ArrayList<Question> listQuestion = new ArrayList<>();
+        SpeedQuizSQLiteOpenHelper helper = new SpeedQuizSQLiteOpenHelper(context);
+        SQLiteDatabase db = helper.getReadableDatabase();
+
+        Cursor cursor = db.query(true,"quiz",new String[]{"idQuiz","question","reponse"},null,null,null,null,"idquiz",null);
+
+        // ajoute les questions dans la liste
+        while(cursor.moveToNext()){
+            listQuestion.add(new Question(cursor));
+        }
+
+        cursor.close();
+        db.close();
+        // retourne la liste contenant les questions
+        return listQuestion;
     }
 }

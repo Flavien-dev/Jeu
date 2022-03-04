@@ -1,12 +1,13 @@
 package com.chapfla.jeu.Models;
 
+// importer les librairies
+import android.database.Cursor;
+
 public class Question {
 
     private String question;
 
     private int reponse;
-
-    public Question(){};
 
     /**
      * construit une question
@@ -16,6 +17,15 @@ public class Question {
     public Question(String question, int réponse) {
         this.question = question;
         this.reponse = réponse;
+    }
+
+    /**
+     * construit une question
+     * @param cursor ce qui contient la question + la réponse
+     */
+    public Question(Cursor cursor){
+        question = cursor.getString(cursor.getColumnIndexOrThrow("question"));
+        reponse = cursor.getInt(cursor.getColumnIndexOrThrow("reponse"));
     }
 
     /**
@@ -32,21 +42,5 @@ public class Question {
      */
     public int getReponse() {
         return reponse;
-    }
-
-    /**
-     * permet de modifier la question
-     * @param question question posée
-     */
-    public void setQuestion(String question) {
-        this.question = question;
-    }
-
-    /**
-     * permet de modifier la réponse
-     * @param reponse réponse de la question
-     */
-    public void setReponse(int reponse) {
-        this.reponse = reponse;
     }
 }

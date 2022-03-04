@@ -1,7 +1,14 @@
 <resources>
+    <!-- tous les noms utilisés dans l'application -->
     <string name="app_name">Jeu</string>
-    <string name="nom_jeu">Speed Game</string>
     <string name="question_ajouter_joueur">Veuillez ajouter un joueur</string>
     <string name="ajouter_joueur">Ajouter un joueur</string>
     <string name="jouer">Jouer</string>
+    <string name="nom_jeu">Nom du jeu : Speed Game</string>
+    <string name="nom_createur">Nom du créateur : Flavien Chappuis</string>
+    <string name="num_vers">N° de version : 2.1.5</string>
+    <string name="menu_temps_question">Temps entre les questions</string>
+    <string name="menu_nouvelle_question">Nouvelle question</string>
+    <string name="menu_ajouter_question">Ajouter</string>
+    <string name="switch_réponse">Réponse : </string>
 </resources>

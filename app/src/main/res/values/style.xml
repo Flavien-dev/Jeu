@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- tous les style utilisés dans l'application -->
     <style name="widget.Jeu.TextInputLayer.firstPlayer" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="android:textSize">20sp</item>
         <item name="boxStrokeColor">@color/primaryOrange</item>
@@ -28,8 +29,8 @@
     </style>
 
     <style name="Widget.Jeu.Button.Outlined" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textSize">20sp</item>
         <item name="android:textColor">@color/white</item>
-        <item name="materialButtonOutlinedStyle">@color/primaryOrange</item>
-        <item name="android:textColorPrimary">@color/primaryOrange</item>
+        <item name="android:backgroundTint">@color/green</item>
     </style>
 </resources>

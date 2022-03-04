@@ -6,21 +6,24 @@
     android:id="@+id/StartLayoutGame"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/black"
+    android:background="@drawable/eclair_vert"
     tools:context=".MainActivity"
     tools:ignore="MissingDefaultResource">
 
+    <!-- bouton de vérification du joueur 2 -->
     <Button
         android:id="@+id/button_player_2"
-        style="@style/Widget.Jeu.Button.addPlayer"
+        style="@style/Widget.Jeu.Button.Outlined"
         android:layout_width="498dp"
         android:layout_height="51dp"
         android:layout_marginLeft="28dp"
         android:layout_marginTop="28dp"
         android:rotation="180"
+        android:backgroundTint="#77BA38"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- afficheur de question pour le joueur 2 -->
     <TextView
         android:id="@+id/game_quest_2"
         android:layout_width="499dp"
@@ -30,36 +33,42 @@
         android:rotation="180"
         android:text="question du joueur 2"
         android:textSize="25sp"
+        android:textColor="@color/white"
         android:maxLines="2"
         app:layout_constraintLeft_toLeftOf="@id/StartLayoutGame"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- afficheur du score pour le joueur 2 -->
     <TextView
         android:id="@+id/score_player_2"
         android:layout_width="175dp"
         android:layout_height="140dp"
         android:layout_marginLeft="540dp"
-        android:layout_marginBottom="164dp"
+        android:layout_marginBottom="176dp"
         android:rotation="180"
         android:text="0"
+        android:textColor="@color/green"
         android:textSize="120sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/StartLayoutGame" />
 
+    <!-- permet de retourner au menu -->
     <Button
         android:id="@+id/menu"
-        style="@style/Widget.Jeu.Button.addPlayer"
+        style="@style/Widget.Jeu.Button.Outlined"
         android:layout_width="126dp"
         android:layout_height="48dp"
         android:layout_marginLeft="108dp"
         android:layout_marginTop="162dp"
         android:text="Menu"
+        android:backgroundTint="@color/green"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- permet de recommencer le jeu -->
     <Button
         android:id="@+id/rejouer"
-        style="@style/Widget.Jeu.Button.addPlayer"
+        style="@style/Widget.Jeu.Button.Outlined"
         android:layout_width="146dp"
         android:layout_height="48dp"
         android:layout_marginLeft="464dp"
@@ -68,6 +77,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- afficheur du score du joueur 1 -->
     <TextView
         android:id="@+id/score_player_1"
         android:layout_width="175dp"
@@ -75,10 +85,12 @@
         android:layout_marginLeft="16dp"
         android:layout_marginBottom="28dp"
         android:text="0"
+        android:textColor="@color/green"
         android:textSize="120sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/StartLayoutGame" />
 
+    <!-- afficheur de question du joueur 1 -->
     <TextView
         android:id="@+id/game_quest_1"
         android:layout_width="500dp"
@@ -88,16 +100,19 @@
         android:text="question du joueur 1"
         android:textSize="25sp"
         android:maxLines="2"
+        android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/StartLayoutGame" />
 
+    <!-- bouton de vérification du joueur 1 -->
     <Button
         android:id="@+id/button_player_1"
-        style="@style/Widget.Jeu.Button.addPlayer"
+        style="@style/Widget.Jeu.Button.Outlined"
         android:layout_width="498dp"
         android:layout_height="51dp"
         android:layout_marginLeft="196dp"
         android:layout_marginBottom="28dp"
+        android:backgroundTint="#77BA38"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
 
