@@ -116,6 +116,11 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * exécute une action par rapport à ce qu'on a sélectionné dans le menu
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){

@@ -53,7 +53,7 @@ public class QuestionManager {
      * @param context Le contexte de l'application pour passer la query
      * @return Une arraylist charger de Question
      */
-    private ArrayList<Question> initQuestionList(Context context){
+    public ArrayList<Question> initQuestionList(Context context){
         ArrayList<Question> listQuestion = new ArrayList<>();
         SpeedQuizSQLiteOpenHelper helper = new SpeedQuizSQLiteOpenHelper(context);
         SQLiteDatabase db = helper.getReadableDatabase();
@@ -67,6 +67,7 @@ public class QuestionManager {
 
         cursor.close();
         db.close();
+
         // retourne la liste contenant les questions
         return listQuestion;
     }

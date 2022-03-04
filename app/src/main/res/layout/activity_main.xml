@@ -98,7 +98,7 @@
             android:textColor="@color/white"
             android:textSize="20dp"
             android:layout_marginBottom="20dp"
-            android:text="Temps entre chaques questions"/>
+            android:text="@string/temps_entre_question"/>
 
         <!-- permet de choisir le délai entre 2 questions -->
         <com.google.android.material.textfield.TextInputLayout
@@ -127,7 +127,7 @@
             android:textColor="@color/white"
             android:textSize="20dp"
             android:layout_marginBottom="20dp"
-            android:text="Nouvelle question"/>
+            android:text="@string/nouvelle_question"/>
 
         <!-- permet de saisir une nouvelle question -->
         <com.google.android.material.textfield.TextInputLayout
@@ -164,15 +164,15 @@
             android:layout_marginEnd="10dp"
             android:textColor="@color/white"
             android:textSize="20dp"
-            android:text="Mode"/>
+            android:text="@string/mode"/>
 
         <!-- permet d'appliquer les paramètres changés -->
         <Button
-            android:id="@+id/button_add_question"
-            style="@style/Widget.Jeu.Button.addPlayer"
+            android:id="@+id/button_validate"
+            style="@style/Widget.Jeu.Button.orange"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/menu_ajouter_question"
+            android:text="@string/menu_validate"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
     </LinearLayout>
@@ -193,7 +193,7 @@
     <!-- permet d'ajouter un joueur -->
     <Button
         android:id="@+id/button_add_player"
-        style="@style/Widget.Jeu.Button.addPlayer"
+        style="@style/Widget.Jeu.Button.orange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="72dp"
@@ -204,15 +204,18 @@
 
     <!-- edittext du premier joueur -->
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TIL_player_1"
+        style="@style/widget.Jeu.TextInputLayer.firstPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginStart="@dimen/marge_champs_saisie"
+        android:layout_marginEnd="@dimen/marge_champs_saisie"
         app:layout_constraintVertical_bias="0.4"
         android:layout_marginTop="24dp"
-        style="@style/widget.Jeu.TextInputLayer.firstPlayer"
         android:textColorHint="@color/teal_200">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -226,11 +229,13 @@
 
     <!-- edittext du deuxième joueur -->
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout"
+        android:id="@+id/TIL_player_2"
         style="@style/widget.Jeu.TextInputLayer.firstPlayer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColorHint="@color/teal_200"
+        android:layout_marginStart="@dimen/marge_champs_saisie"
+        android:layout_marginEnd="@dimen/marge_champs_saisie"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -248,7 +253,7 @@
     <!-- permet de lancer le quiz -->
     <Button
         android:id="@+id/button_playToGame"
-        style="@style/Widget.Jeu.Button.addPlayer"
+        style="@style/Widget.Jeu.Button.orange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="152dp"

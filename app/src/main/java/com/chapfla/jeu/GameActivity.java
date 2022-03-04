@@ -33,10 +33,9 @@ public class GameActivity extends AppCompatActivity {
     int réponseQuestion = 0;
     Runnable questionRunnable = null;
 
-    private QuestionManager qManager;
-
     // créer des objets grâce aux classes
     QuestionManager gestionQuestion = new QuestionManager();
+    QuestionManager qManager;
     ArrayList<Question> listeQuestion = new ArrayList<>();
     Question questionEnCours;
 
@@ -63,9 +62,6 @@ public class GameActivity extends AppCompatActivity {
         BT_menu.setVisibility(View.INVISIBLE);
         BT_rejouer.setVisibility(View.INVISIBLE);
 
-        // remplie la liste de question
-        gestionQuestion.fillList();
-
         qManager = new QuestionManager(this);
     }
 
@@ -73,7 +69,7 @@ public class GameActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        listeQuestion = gestionQuestion.listeAQuestion;
+        listeQuestion = qManager.initQuestionList(this);
 
         afficherQuestion(listeQuestion);
 
@@ -169,12 +165,12 @@ public class GameActivity extends AppCompatActivity {
                     BT_player_2.setEnabled(true);
 
                     // affecte un délai entre chaque question
-                    handler.postDelayed(this,3000);
+                    handler.postDelayed(this,2000);
                 }
             }
         };
         // affecte un délai entre chaque question
-        handler.postDelayed(questionRunnable,3000);
+        handler.postDelayed(questionRunnable,2000);
     }
 
     /**
@@ -183,7 +179,7 @@ public class GameActivity extends AppCompatActivity {
      */
     public void afficherQuestion(ArrayList liste) {
         // prend une question au hasard dans la liste
-        Question question = gestionQuestion.distribQuestionAlea(liste);
+        Question question = qManager.distribQuestionAlea(liste);
 
         // affiche la question pour les deux joueurs
         TV_quest_1.setText(question.getQuestion());

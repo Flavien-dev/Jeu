@@ -12,11 +12,11 @@ public class Question {
     /**
      * construit une question
      * @param question ce qu'on va demandé à l'utilisateur
-     * @param réponse ce qui est juste
+     * @param reponse ce qui est juste
      */
-    public Question(String question, int réponse) {
+    public Question(String question, int reponse) {
         this.question = question;
-        this.reponse = réponse;
+        this.reponse = reponse;
     }
 
     /**

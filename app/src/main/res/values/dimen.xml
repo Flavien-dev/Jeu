@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="taille_texte_button">20sp</dimen>
+    <dimen name="taille_texte_question">25sp</dimen>
+    <dimen name="taille_score">120sp</dimen>
+    <dimen name="marge_champs_saisie">30dp</dimen>
+</resources>
