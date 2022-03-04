@@ -41,7 +41,7 @@
 
     <style name="Widget.jeu.TextView" parent="Widget.MaterialComponents.TextInputLayout.FilledBox">
         <item name="android:textSize">@dimen/taille_texte_question</item>
-        <item name="android:maxLines">1</item>
+        <item name="android:maxLines">2</item>
         <item name="android:textColor">@color/white</item>
     </style>
 

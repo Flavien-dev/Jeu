@@ -37,6 +37,7 @@ public class GameActivity extends AppCompatActivity {
     QuestionManager qManager;
     ArrayList<Question> listeQuestion = new ArrayList<>();
     Question questionEnCours;
+    long delai_entre_question = 2000;
 
     /**
      * créer le programme quand il se lance
@@ -46,6 +47,8 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
+        Intent MainActivity = getIntent();
 
         // initialiser les objets de l'application
         BT_player_1 = findViewById(R.id.button_player_1);
@@ -62,6 +65,8 @@ public class GameActivity extends AppCompatActivity {
         BT_rejouer.setVisibility(View.INVISIBLE);
 
         qManager = new QuestionManager(this);
+
+        delai_entre_question = MainActivity.getIntExtra("delai", 2000);
     }
 
     @Override
@@ -159,17 +164,21 @@ public class GameActivity extends AppCompatActivity {
                     // affiche une question
                     afficherQuestion(listeQuestion);
 
+                    Log.wtf("délai", Long.toString(delai_entre_question));
+
                     // grise les boutons
                     BT_player_1.setEnabled(true);
                     BT_player_2.setEnabled(true);
 
+                    Log.wtf("délai", Long.toString(delai_entre_question));
+
                     // affecte un délai entre chaque question
-                    handler.postDelayed(this,2000);
+                    handler.postDelayed(this, (long) delai_entre_question);
                 }
             }
         };
         // affecte un délai entre chaque question
-        handler.postDelayed(questionRunnable,2000);
+        handler.postDelayed(questionRunnable,(long) delai_entre_question);
     }
 
     /**

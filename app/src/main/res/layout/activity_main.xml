@@ -113,7 +113,8 @@
                 android:layout_height="wrap_content"
                 android:textSize="20dp"
                 android:inputType="number"
-                android:maxLines="1"/>
+                android:maxLines="1"
+                android:maxLength="5"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <!-- permet de saisir une nouvelle question -->
@@ -133,6 +134,38 @@
                 android:inputType="text"
                 android:maxLines="4"/>
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/reponse"
+            android:textColor="@color/teal_700"
+            android:textSize="@dimen/taille_texte_button"
+            android:layout_marginStart="@dimen/marge_champs_saisie"
+            android:layout_marginEnd="@dimen/marge_champs_saisie"/>
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:checkedButton="@+id/radio_checked_element"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/marge_champs_saisie"
+            android:layout_marginEnd="@dimen/marge_champs_saisie">
+            <RadioButton
+                android:id="@+id/radio_vrai"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/radio_vrai"
+                android:textColor="@color/teal_700"
+                android:textSize="@dimen/taille_texte_button"/>
+            <RadioButton
+                android:id="@+id/radio_faux"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/radio_faux"
+                android:textColor="@color/teal_700"
+                android:textSize="@dimen/taille_texte_button"/>
+        </RadioGroup>
 
         <!-- permet d'appliquer les paramètres changés -->
         <Button

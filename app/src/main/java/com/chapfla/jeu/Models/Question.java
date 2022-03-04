@@ -43,4 +43,20 @@ public class Question {
     public int getReponse() {
         return reponse;
     }
+
+    /**
+     * modifie la question
+     * @param question question à modifier
+     */
+    public void setQuestion(String question) {
+        this.question = question;
+    }
+
+    /**
+     * modifie la réponse de la question
+     * @param reponse réponse à modifier
+     */
+    public void setReponse(int reponse) {
+        this.reponse = reponse;
+    }
 }

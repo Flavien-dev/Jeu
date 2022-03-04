@@ -14,7 +14,10 @@
     <string name="Question_joueur_1">Question du joueur 1</string>
     <string name="Question_joueur_2">Question du joueur 2</string>
     <string name="Score_de_base">0</string>
-    <string name="temps_entre_question">Temps entre chaque question</string>
+    <string name="temps_entre_question">Temps entre chaque question (min 4 chiffres)</string>
     <string name="nouvelle_question">Nouvelle question</string>
     <string name="switch_mode">Mode</string>
+    <string name="radio_vrai">Vrai</string>
+    <string name="radio_faux">Faux</string>
+    <string name="reponse">Réponse</string>
 </resources>

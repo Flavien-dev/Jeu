@@ -7,6 +7,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -16,9 +18,14 @@ import android.widget.Button;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.chapfla.jeu.Models.Question;
 import com.google.android.material.switchmaterial.SwitchMaterial;
+import com.google.android.material.textfield.TextInputEditText;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
     private Button BT_add_player;
     private EditText ET_first_player;
     private EditText ET_second_player;
+    private TextInputEditText ET_delai_question;
+    private TextInputEditText ET_nouvelle_question;
+    private RadioButton RB_nouvelle_reponse;
     private Button BT_jouer;
     private Toolbar toolbar;
     private ConstraintLayout StartLayout;
@@ -34,6 +44,11 @@ public class MainActivity extends AppCompatActivity {
     private LinearLayout LL_settings;
     private SwitchMaterial SW_theme;
     private Button BT_valider;
+
+    int delai_entre_question = 0;
+    Question nouvelleQuestion;
+    String question;
+    int réponse;
 
     /**
      * crée et initialise les objets au démarrage de l'application
@@ -59,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
         LL_settings = findViewById(R.id.main_settings_popup);
         SW_theme = findViewById(R.id.switch_réponse);
         BT_valider = findViewById(R.id.button_validate);
+        ET_delai_question = findViewById(R.id.edittext_menu_vitesse_question);
+        ET_nouvelle_question = findViewById(R.id.edittext_menu_nouvelle_question);
+        RB_nouvelle_reponse = findViewById(R.id.radio_checked_element);
 
         // rend invisible certains éléments
         ET_first_player.setVisibility(View.INVISIBLE);
@@ -75,8 +93,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
-
 
         /**
          * exécute le code du bouton pour ajouter un utilisateur
@@ -101,11 +117,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 // si 2 joueurs sont saisis, l'activité GameActivity se lance
                 if (vérifierChampsSaisie()) {
-                    Intent GameActivity = new Intent(MainActivity.this,GameActivity.class);
-                    // l'activité MainActivity se termine
-                    finish();
-                    // l'activité GameActivity se lance
-                    startActivity(GameActivity);
+                    if (ET_delai_question.getText().toString().equals("")) {
+                        Toast.makeText(MainActivity.this, "Vous n'avez pas saisi une vitesse de lecture dans les settings!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Intent GameActivity = new Intent(MainActivity.this,GameActivity.class);
+
+                        GameActivity.putExtra("delai", delai_entre_question);
+
+                        // l'activité MainActivity se termine
+                        finish();
+                        // l'activité GameActivity se lance
+                        startActivity(GameActivity);
+                    }
                 }
             }
         });
@@ -126,11 +149,44 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        RB_nouvelle_reponse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                boolean checked = ((RadioButton) v).isChecked();
+                // Check which radiobutton was pressed
+                if (checked){
+                    réponse = 1;
+                }
+                else{
+                    réponse = 0;
+                }
+            }
+        });
+
         BT_valider.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onCheckedChanged(SW_theme);
+                if (!ET_delai_question.getText().toString().equals("")) {
+                    delai_entre_question = Integer.parseInt(ET_delai_question.getText().toString());
+                }
+                if (!ET_nouvelle_question.getText().toString().equals(""))
                 LL_settings.setVisibility(View.INVISIBLE);
+            }
+        });
+
+        ET_delai_question.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
             }
         });
     }
@@ -178,16 +234,5 @@ public class MainActivity extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
         return true;
-    }
-
-    public void onCheckedChanged(SwitchMaterial switch_menu) {
-        if(switch_menu.isChecked()) {
-            Log.wtf("switch","true");
-            StartLayout.setBackgroundResource(R.drawable.espace_orange);
-        }
-        else {
-            Log.wtf("switch","false");
-            StartLayout.setBackgroundResource(R.drawable.image_clair);
-        }
     }
 }
