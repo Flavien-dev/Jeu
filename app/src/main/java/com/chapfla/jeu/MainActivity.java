@@ -112,6 +112,9 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        /**
+         * exécute le code du bouton pour jouer
+         */
         BT_jouer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -145,20 +148,6 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     // sinon, un fond d'écran clair apparait
                     StartLayout.setBackgroundResource(R.drawable.image_clair);
-                }
-            }
-        });
-
-        RB_nouvelle_reponse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                boolean checked = ((RadioButton) v).isChecked();
-                // Check which radiobutton was pressed
-                if (checked){
-                    réponse = 1;
-                }
-                else{
-                    réponse = 0;
                 }
             }
         });
